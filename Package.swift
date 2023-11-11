@@ -5,19 +5,19 @@ import PackageDescription
 
 let package = Package(
     name: "SplitView",
+    platforms: [
+        .iOS("16"), .macOS(.v12)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "SplitView",
-            targets: ["SplitView"]),
+            targets: ["SplitView"]
+        ),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-format", .upToNextMajor(from: "509.0.0"))
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "SplitView"),
-        .testTarget(
-            name: "SplitViewTests",
-            dependencies: ["SplitView"]),
+        .target(name: "SplitView")
     ]
 )
